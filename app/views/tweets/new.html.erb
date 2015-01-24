@@ -1,11 +1,5 @@
-<body style="background:url(/assets/images/lea.png)">
+<body style="background:url(/assets/kevin.jpg)">
 	Hello BC
-
-	<% flash.each do |key, value| %>
-		<div class = "alert alert-<%=key%>">
-			<%= value %>
-		</div>
-	<% end %>
 
 	<%= simple_form_for @tweet do |f| %>
 		<%= f.input :content %>
