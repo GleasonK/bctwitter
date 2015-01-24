@@ -1,6 +1,15 @@
-Hello BC
+<body style="background:url(/assets/images/lea.png)">
+	Hello BC
 
-<%= simple_form_for @tweet do |f| %>
-	<%= f.input :content %>
-	<%= f.button :submit %>
-<% end %>
+	<% flash.each do |key, value| %>
+		<div class = "alert alert-<%=key%>">
+			<%= value %>
+		</div>
+	<% end %>
+
+	<%= simple_form_for @tweet do |f| %>
+		<%= f.input :content %>
+		<%= f.button :submit %>
+	<% end %>
+
+</body>
