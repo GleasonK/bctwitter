@@ -1,4 +1,4 @@
-	Hello BC
+	Hello <%= current_user.profile.profile_name %>. Post new FanMail:
 
 	<%= simple_form_for @tweet do |f| %>
 		<%= f.input :content %>
@@ -10,7 +10,7 @@
 			<li>
 				<div id="tweet">
 					<%= tweet.content %><br/>
-				<b>by <%= tweet.user.email %> at <%= tweet.created_at.strftime("%I:%M%p %m-%d-%Y ") %></b>
+				<b>by <%= tweet.user.profile.profile_name %> at <%= tweet.created_at.strftime("%I:%M%p %m-%d-%Y ") %></b>
 				</div>
 			</li>
 		<% end %>

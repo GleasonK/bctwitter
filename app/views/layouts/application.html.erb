@@ -20,7 +20,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Kevin Fanclub</a>
+      
+      <% if user_signed_in? %>
+        <%  if current_user.profile %>
+          <%= link_to "Kevin Fanclub", profile_path(current_user.profile.profile_name), class: 'navbar-brand' %>
+        <% end %>
+      <% else %>
+        <a class="navbar-brand" href="#">Kevin Fanclub</a>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

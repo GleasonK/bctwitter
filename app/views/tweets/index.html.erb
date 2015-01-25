@@ -3,7 +3,15 @@
 	<li>
 		<div id="tweet">
 			<%= tweet.content %><br/>
-			<b style="padding-left:5px">by <%= tweet.user.email %> at <%= tweet.created_at.strftime("%I:%M%p %m-%d-%Y ") %></b>
+			<b style="padding-left:5px">by <%= tweet.user.profile.profile_name %> at <%= tweet.created_at.strftime("%I:%M%p %m-%d-%Y ") %></b>
+			<%= simple_form_for @relationship do |f| %>
+				<% if current_user.following?(tweet.user) %>
+					<button type="button" class="btn btn-danger">You Love Keivn!</button>
+				<% else %>
+					<%= f.input :followed_id, as: :hidden, input_html: { value: tweet.user.id } %>
+					<%= f.button :submit, class: 'btn btn-primary', value: "Love Kevin?" %>
+				<% end %>
+			<% end %>
 		</div>
 	</li>
 	<%end%>	
