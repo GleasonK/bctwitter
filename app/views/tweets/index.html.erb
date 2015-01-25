@@ -1,0 +1,10 @@
+<ul class="list-unstyled">
+	<% @tweets.each do |tweet| %>
+	<li>
+		<div id="tweet">
+			<%= tweet.content %><br/>
+			<b>by <%= tweet.user.email %> at <%= tweet.created_at.strftime("%I:%M%p %m-%d-%Y ") %></b>
+		</div>
+	</li>
+	<%end%>	
+</ul>
